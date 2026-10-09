@@ -1,0 +1,63 @@
+/* ============================================================
+   Tadorne — design tokens
+   Source of truth for every Tadorne surface (site, docs, slides).
+   Light mode = crème paper. Dark mode = ink.
+   ============================================================ */
+
+:root {
+  /* --- Core palette (from the shelduck itself) --- */
+  --td-orange:        #E7934B;  /* chestnut band — primary brand colour */
+  --td-vermilion:     #F25A2F;  /* bill — vivid accent, large elements only */
+  --td-vermilion-deep:#B23A12;  /* accessible accent: links, small text (5.9:1 on crème) */
+  --td-ink:           #14171C;  /* head plumage — near-black, text & dark bg */
+  --td-creme:         #FEFCF5;  /* body plumage — paper background */
+  --td-sand:          #CE905F;  /* shading — borders, muted fills */
+  --td-sand-light:    #D2A06E;  /* shading — hover states, secondary fills */
+  --td-brown:         #2F1C0F;  /* deep shadow — footers, code blocks on light */
+
+  /* --- Semantic (light mode) --- */
+  --td-bg:            var(--td-creme);
+  --td-bg-raised:     #F7F0E2;             /* cards, asides: crème darkened a step */
+  --td-fg:            var(--td-ink);
+  --td-fg-muted:      #4A4438;             /* secondary text, 8.6:1 on crème */
+  --td-accent:        var(--td-vermilion-deep);
+  --td-accent-strong: var(--td-vermilion); /* big headings, rules, decorations */
+  --td-brand:         var(--td-orange);
+  --td-border:        #E3D5BC;
+  --td-code-bg:       #F3EBDA;
+
+  /* --- Type --- */
+  --td-font-display: "Space Grotesk", "Avenir Next", "Trebuchet MS", sans-serif;
+  --td-font-text:    "Inter", "Helvetica Neue", Arial, sans-serif;
+  --td-font-mono:    "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+
+  /* --- Rhythm --- */
+  --td-radius: 6px;          /* soft but technical; never pill-shaped */
+  --td-measure: 68ch;        /* max line length for prose */
+}
+
+/* Dark mode — ink water at night; orange stays legible (7.4:1 on ink) */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --td-bg:            var(--td-ink);
+    --td-bg-raised:     #1D2129;
+    --td-fg:            var(--td-creme);
+    --td-fg-muted:      #B8B2A4;
+    --td-accent:        var(--td-orange);
+    --td-accent-strong: var(--td-vermilion);
+    --td-brand:         var(--td-orange);
+    --td-border:        #33383F;
+    --td-code-bg:       #1A1E24;
+  }
+}
+:root[data-theme="dark"] {
+  --td-bg:            var(--td-ink);
+  --td-bg-raised:     #1D2129;
+  --td-fg:            var(--td-creme);
+  --td-fg-muted:      #B8B2A4;
+  --td-accent:        var(--td-orange);
+  --td-accent-strong: var(--td-vermilion);
+  --td-brand:         var(--td-orange);
+  --td-border:        #33383F;
+  --td-code-bg:       #1A1E24;
+}

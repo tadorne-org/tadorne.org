@@ -1,0 +1,25 @@
+{{ define "main" }}
+  <header class="page-head">
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="page-head__lead">{{ . }}</p>{{ end }}
+    {{ with .OutputFormats.Get "rss" }}
+    <p class="meta" style="margin-top:.75rem"><a href="{{ .RelPermalink }}">{{ i18n "rssFeed" }}</a></p>
+    {{ end }}
+  </header>
+  {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+
+  <div class="entries" style="margin-top:2rem">
+    {{- range .Pages.ByDate.Reverse }}
+    <article class="entry">
+      <div class="entry__date">
+        {{- with .Date }}<time datetime="{{ .Format "2006-01-02" }}">{{ time.Format ":date_medium" . }}</time>{{ end -}}
+      </div>
+      <div>
+        <h2 class="entry__title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        <p>{{ .Description | default .Summary }}</p>
+        <p class="meta" style="margin-top:.5rem">{{ i18n "readingTime" (dict "count" .ReadingTime) }}</p>
+      </div>
+    </article>
+    {{- end }}
+  </div>
+{{ end }}

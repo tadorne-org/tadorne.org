@@ -1,0 +1,26 @@
+{{- /* Links to the translated counterpart of the current page when one exists,
+       otherwise to that language's home page. Pure markup, no JavaScript. */ -}}
+<nav class="langswitch" aria-label="{{ i18n "languageSwitcher" }}">
+  {{- $page := . -}}
+  {{- $langs := slice -}}
+  {{- range .Site.Home.AllTranslations -}}
+    {{- $langs = $langs | append .Site.Language -}}
+  {{- end -}}
+  {{- range $i, $lang := $langs -}}
+    {{- if $i }}<span class="langswitch__sep" aria-hidden="true">/</span>{{ end -}}
+    {{- if eq $lang.Lang $page.Site.Language.Lang -}}
+      <span aria-current="true" lang="{{ $lang.Lang }}">{{ $lang.Lang | upper }}</span>
+    {{- else -}}
+      {{- $target := "" -}}
+      {{- range $page.Translations -}}
+        {{- if eq .Site.Language.Lang $lang.Lang }}{{ $target = .RelPermalink }}{{ end -}}
+      {{- end -}}
+      {{- if not $target -}}
+        {{- range $page.Site.Home.AllTranslations -}}
+          {{- if eq .Site.Language.Lang $lang.Lang }}{{ $target = .RelPermalink }}{{ end -}}
+        {{- end -}}
+      {{- end -}}
+      <a href="{{ $target }}" lang="{{ $lang.Lang }}" hreflang="{{ $lang.Lang }}">{{ $lang.Lang | upper }}</a>
+    {{- end -}}
+  {{- end -}}
+</nav>

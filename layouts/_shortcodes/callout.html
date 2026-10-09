@@ -1,0 +1,5 @@
+{{- /* {{< callout title="..." >}} body markdown {{< /callout >}} */ -}}
+<aside class="callout">
+  {{ with .Get "title" }}<p class="callout__title">{{ . }}</p>{{ end }}
+  {{ .Inner | .Page.RenderString (dict "display" "block") }}
+</aside>

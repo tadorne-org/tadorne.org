@@ -1,0 +1,11 @@
+# tadorne.org — security contact
+#
+# TODO: once the Tadorne GPG key exists, this file must be replaced by a
+# clearsigned version (gpg --clearsign security.txt) and the Encryption
+# and Expires fields filled in with real values. RFC 9116 requires Expires.
+
+Contact: mailto:contact@tadorne.org
+Encryption: https://tadorne.org/.well-known/openpgpkey/hu/
+Preferred-Languages: en, fr
+Canonical: https://tadorne.org/.well-known/security.txt
+Expires: 2027-01-01T00:00:00.000Z

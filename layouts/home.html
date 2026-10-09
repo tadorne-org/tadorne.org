@@ -1,0 +1,55 @@
+{{ define "main" }}
+
+  <section class="identity">
+    {{ partial "mark.html" "identity__mark" }}
+    <div>
+      <h1 class="identity__name">Tadorne</h1>
+      <p class="identity__motto">{{ .Site.Params.motto }}</p>
+    </div>
+  </section>
+
+  {{ with .Content }}<div class="prose intro">{{ . }}</div>{{ end }}
+
+  {{ with .Params.pillars }}
+  <section class="band" aria-labelledby="pillars-title">
+    <h2 class="band__title" id="pillars-title">{{ i18n "pillarsTitle" }}</h2>
+    <div class="pillars">
+      {{- range . }}
+      <article class="pillar">
+        <span class="pillar__glyph" aria-hidden="true">{{ .glyph }}</span>
+        <h3 class="pillar__verb">{{ .verb }}</h3>
+        <p>{{ .body }}</p>
+      </article>
+      {{- end }}
+    </div>
+  </section>
+  {{ end }}
+
+  {{ with where site.Sections "Type" "projects" }}
+  {{ with (index . 0).RegularPages.ByWeight }}
+  <section class="band" aria-labelledby="projects-title">
+    <h2 class="band__title" id="projects-title">{{ i18n "projectsTitle" }}</h2>
+    <div class="cards">
+      {{- range . }}
+      {{ partial "project-card.html" . }}
+      {{- end }}
+    </div>
+  </section>
+  {{ end }}
+  {{ end }}
+
+  {{ with .Params.commitment }}
+  <section class="band" aria-labelledby="commitment-title">
+    <h2 class="band__title" id="commitment-title">{{ i18n "commitmentTitle" }}</h2>
+    <div class="cards">
+      {{- range . }}
+      <article class="card">
+        <h3>{{ .title }}</h3>
+        <p>{{ .body }}</p>
+      </article>
+      {{- end }}
+    </div>
+  </section>
+  {{ end }}
+
+{{ end }}

@@ -1,0 +1,17 @@
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="{{ "/" | relLangURL }}">
+      {{ partial "mark.html" "" }}
+      <span class="brand__word">tadorne</span>
+    </a>
+
+    <nav class="nav" aria-label="{{ i18n "mainNavigation" }}">
+      {{- range .Site.Menus.main }}
+      {{- $active := or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }}
+      <a href="{{ .URL }}"{{ if $active }} aria-current="page"{{ end }}>{{ .Name }}</a>
+      {{- end }}
+    </nav>
+
+    {{ partial "langswitch.html" . }}
+  </div>
+</header>

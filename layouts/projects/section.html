@@ -1,0 +1,13 @@
+{{ define "main" }}
+  <header class="page-head">
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="page-head__lead">{{ . }}</p>{{ end }}
+  </header>
+  {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+
+  <div class="cards" style="margin-top:2.5rem">
+    {{- range .RegularPages.ByWeight }}
+    {{ partial "project-card.html" . }}
+    {{- end }}
+  </div>
+{{ end }}

@@ -1,0 +1,45 @@
+{{- $verify := "" -}}
+{{- range .Site.Menus.main }}{{ if eq .Weight 40 }}{{ $verify = .URL }}{{ end }}{{ end -}}
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__grid">
+
+      <div>
+        <p class="site-footer__motto">{{ .Site.Params.motto }}</p>
+      </div>
+
+      <div>
+        <h2>{{ i18n "footerNavigation" }}</h2>
+        <ul>
+          {{- range .Site.Menus.main }}
+          <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+          {{- end }}
+        </ul>
+      </div>
+
+      <div>
+        <h2>{{ i18n "footerElsewhere" }}</h2>
+        <ul>
+          <li><a href="{{ .Site.Params.xUrl }}" rel="me">X — {{ .Site.Params.xHandle }}</a></li>
+          {{/* Lien Discord masqué pour le moment : l'invitation est à durée
+               limitée (cf. hugo.toml, discordUrl). Rétablir la ligne :
+               <li><a href="{{ .Site.Params.discordUrl }}">Discord</a></li> */}}
+        </ul>
+      </div>
+
+      <div>
+        <h2>{{ i18n "footerAuthenticity" }}</h2>
+        <p>{{ i18n "footerKeyUid" }} <code>{{ .Site.Params.gpgUid }}</code></p>
+        <code class="site-footer__fp">{{ .Site.Params.gpgFingerprint }}</code>
+        <p style="margin-top:.6rem"><a href="{{ $verify }}">{{ i18n "footerHowToVerify" }}</a></p>
+      </div>
+
+    </div>
+
+    <div class="site-footer__note">
+      <span>{{ i18n "footerNoTracking" }}</span>
+      <span>{{ i18n "footerLicence" }}</span>
+      <span>{{ i18n "footerCopyright" (dict "year" now.Year) }}</span>
+    </div>
+  </div>
+</footer>

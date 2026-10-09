@@ -1,0 +1,19 @@
+{{ define "main" }}
+  <article>
+    <header class="page-head">
+      <p class="eyebrow">{{ i18n "project" }}{{ with .Params.status }} &middot; {{ . }}{{ end }}</p>
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p class="page-head__lead">{{ . }}</p>{{ end }}
+      {{ with .Params.keyfigures }}
+      <dl class="keyfigures" style="margin-top:1.75rem;max-width:56rem">
+        {{- range . }}
+        <div class="keyfigure"><dt>{{ .label }}</dt><dd>{{ .value }}</dd></div>
+        {{- end }}
+      </dl>
+      {{ end }}
+    </header>
+    <div class="prose">
+      {{ .Content }}
+    </div>
+  </article>
+{{ end }}

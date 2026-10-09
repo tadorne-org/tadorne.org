@@ -1,0 +1,16 @@
+{{ define "main" }}
+  <article>
+    <header class="page-head">
+      <p class="meta">
+        {{- with .Date }}<time datetime="{{ .Format "2006-01-02" }}">{{ time.Format ":date_long" . }}</time>{{ end -}}
+        <span>{{ i18n "readingTime" (dict "count" .ReadingTime) }}</span>
+        {{- with .Params.tags }}<span>{{ delimit . ", " }}</span>{{ end -}}
+      </p>
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p class="page-head__lead">{{ . }}</p>{{ end }}
+    </header>
+    <div class="prose">
+      {{ .Content }}
+    </div>
+  </article>
+{{ end }}

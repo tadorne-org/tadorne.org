@@ -1,0 +1,16 @@
+{{- /* Carte projet. Les projets vivent sur leur propre sous-domaine :
+       params.external porte l'URL, la fiche elle-même n'est pas rendue. */ -}}
+{{- $url := .Params.external | default .RelPermalink -}}
+<article class="card">
+  {{ with .Params.status }}<p><span class="card__status">{{ . }}</span></p>{{ end }}
+  <h3><a href="{{ $url }}">{{ .Title }}</a></h3>
+  <p>{{ .Description | default .Summary }}</p>
+  {{ with .Params.keyfigures }}
+  <dl class="keyfigures">
+    {{- range . }}
+    <div class="keyfigure"><dt>{{ .label }}</dt><dd>{{ .value }}</dd></div>
+    {{- end }}
+  </dl>
+  {{ end }}
+  <p><a class="more" href="{{ $url }}">{{ i18n "readProject" }}</a></p>
+</article>

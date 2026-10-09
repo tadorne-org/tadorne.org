@@ -1,0 +1,57 @@
+[skipToContent]
+other = "Aller au contenu"
+
+[mainNavigation]
+other = "Navigation principale"
+
+[languageSwitcher]
+other = "Langue"
+
+[table]
+other = "Tableau, défilement horizontal"
+
+[pillarsTitle]
+other = "Quatre modes de déplacement"
+
+[projectsTitle]
+other = "Projets"
+
+[commitmentTitle]
+other = "Comment le travail est publié"
+
+[readProject]
+other = "Lire le projet"
+
+[project]
+other = "Projet"
+
+[rssFeed]
+other = "Flux RSS"
+
+[readingTime]
+one = "{{ .count }} min de lecture"
+other = "{{ .count }} min de lecture"
+
+[footerNavigation]
+other = "Navigation"
+
+[footerAuthenticity]
+other = "Authenticité"
+
+[footerElsewhere]
+other = "Ailleurs"
+
+[footerKeyUid]
+other = "Clé GPG"
+
+[footerHowToVerify]
+other = "Comment vérifier une publication Tadorne"
+
+[footerNoTracking]
+other = "Aucune analytique, aucun cookie, aucune requête tierce."
+
+[footerLicence]
+other = "Matériel, micrologiciel et documentation publiés sous licences libres."
+
+[footerCopyright]
+other = "© {{ .year }} tadorne.org. Tous droits réservés."
