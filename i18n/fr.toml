@@ -55,3 +55,6 @@ other = "Matériel, micrologiciel et documentation publiés sous licences libres
 
 [footerCopyright]
 other = "© {{ .year }} tadorne.org. Tous droits réservés."
+
+[footerMadeInFrance]
+other = "Made in France 🇫🇷"

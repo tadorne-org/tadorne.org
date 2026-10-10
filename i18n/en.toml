@@ -55,3 +55,6 @@ other = "Hardware, firmware and documentation published under free licences."
 
 [footerCopyright]
 other = "© {{ .year }} tadorne.org. All rights reserved."
+
+[footerMadeInFrance]
+other = "Made in France 🇫🇷"
