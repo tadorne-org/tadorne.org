@@ -58,3 +58,6 @@ other = "© {{ .year }} tadorne.org. All rights reserved."
 
 [footerMadeInFrance]
 other = "Made in France 🇫🇷"
+
+[footerProject]
+other = "Got a project to build? Get in touch"

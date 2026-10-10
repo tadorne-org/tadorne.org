@@ -21,6 +21,7 @@
         <h2>{{ i18n "footerElsewhere" }}</h2>
         <ul>
           <li><a href="{{ .Site.Params.xUrl }}" rel="me">X — {{ .Site.Params.xHandle }}</a></li>
+          <li><a href="mailto:{{ .Site.Params.contact }}">{{ i18n "footerProject" }}</a></li>
           {{/* Lien Discord masqué pour le moment : l'invitation est à durée
                limitée (cf. hugo.toml, discordUrl). Rétablir la ligne :
                <li><a href="{{ .Site.Params.discordUrl }}">Discord</a></li> */}}
